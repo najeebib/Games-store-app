@@ -56,7 +56,7 @@ function Login() {
                 type="email"
                 name="email"
                 value={formData.email}
-                onChange={handleChange}
+                onChange={(e)=> setEmail(e.target.value)}
                 required
             />
             </div>
@@ -66,7 +66,7 @@ function Login() {
                 type="password"
                 name="password"
                 value={formData.password}
-                onChange={handleChange}
+                onChange={(e)=> setPass(e.target.value)}
                 required
             />
             </div>
