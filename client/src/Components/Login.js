@@ -1,21 +1,51 @@
 import { React, useState } from 'react'
-
 import "./Login.css"
 import {Link} from "react-router-dom"
 function Login() {
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-      });
-
-      const handleChange = (e) => {//change the values on change
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
     
-      };
+
       
-      const handleSubmit = (e) => {//login onclick
-        e.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();//login onclick
+        if(password === "" || email === "")
+            alert("Enter account details")
+        else
+        {
+            const queryParams = {
+                email: email,
+                password: password,
+            };
+            const queryString = new URLSearchParams(queryParams).toString();
+            const apiURL = `http://localhost:5000/user?${queryString}`
+            const fetchAllUsers = async () => {
+                try {
+                  const response = await fetch(apiURL);
+                  if (response.ok) {
+                    const data = await response.json();
+                    if(data.length === 1)
+                    {
+                        console.log("logged in");
+                    }
+                    else
+                        console.log("error");
+                    console.log(data);
+                  } else {
+                    console.error('GET Error - Response Status:', response.status);
+                  }
+                } catch (err) {
+                  console.error('GET Error:', err);
+                }
+            };
         
-      };
+            fetchAllUsers();
+
+              
+        }
+        
+        
+    };
       
   return (
         <div className="login template d-flex justify-content-center align-items-center vh-100 bg-primary">
@@ -24,22 +54,32 @@ function Login() {
                     <h3 className='text-center'>Sign In</h3>
                     <div className='mb-2'>
                         <label class="form-label" htmlFor='email'>Email</label>
-                        <input type='email' placeholder='Enter email' className='form-control'/>
+                        <input className='form-control'
+                        type='email' 
+                        placeholder='Enter email' 
+                        value={email}
+                        onChange={(e)=> setEmail(e.target.value)}
+                        required/>
                     </div>
                     <div className='mb-2'>
                         <label htmlFor='password'>Password</label>
-                        <input type='password' placeholder='Enter Password' className='form-control'/>
+                        <input type='password'
+                        className='form-control'
+                        placeholder='Enter Password' 
+                        value={password}
+                        onChange={(e)=> setPassword(e.target.value)}
+                        required/>
                     </div>
                     <div className='d-flex justify-content-center'>
-                        <button className='btn btn-primary'>Sign In</button>
+                        <button className='btn btn-primary' onClick={handleSubmit}>Sign In</button>
                     </div>
                     <p className='text-right ms-2'>
                         Forgot password?{' '}
-                        <Link to="/Sigup">New pssword</Link>
+                        <Link to="/Signup">New pssword</Link>
                     </p>
                     <p className='text-right ms-2'>
                         Don't have an account?{' '}
-                        <Link to="/Sigup">Register here</Link>
+                        <Link to="/Signup">Register here</Link>
                     </p>
                 </form>
             </div>
@@ -47,34 +87,4 @@ function Login() {
   )
 }
 
-/*
-    <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-            <div className="form-group">
-            <label>Email:</label>
-            <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={(e)=> setEmail(e.target.value)}
-                required
-            />
-            </div>
-            <div className="form-group">
-            <label>Password:</label>
-            <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={(e)=> setPass(e.target.value)}
-                required
-            />
-            </div>
-            <button type="submit">Login</button>
-            </form>
-            <p>
-                Don't have an account?{' '}
-                <Link to="/Register">Register here</Link>
-            </p>
-*/
 export default Login

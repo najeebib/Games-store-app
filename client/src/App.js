@@ -14,7 +14,7 @@ function App() {
     const fetchAllUsers  = async ()=>{
       try{
         const res = await axios.get("http://localhost:5000/users");
-        console.log(res);
+        console.log(res.data);
       }
       catch(err)
       {
@@ -31,11 +31,11 @@ function App() {
       {!isLoggedIn &&(
                <Routes>
                 <Route
-                 path="/Sigin"
+                 path="/Signin"
                  element={<Login setIsLoggedIn={setIsLoggedIn}/>} // Pass setIsLoggedIn to Login
                />
                <Route
-                 path="/Sigup"
+                 path="/Signup"
                  element={<Register />} // Pass setIsLoggedIn to Login
                />
              </Routes>

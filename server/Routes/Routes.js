@@ -4,7 +4,7 @@ import itemsRoutes from "./Items.js";
 var router = express.Router();
 
 router.get('/', itemsRoutes.get_home); //read
-router.get('/users', itemsRoutes.get_users); //read
+router.get('/user', itemsRoutes.get_user); //read
 
 
 
