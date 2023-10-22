@@ -1,36 +1,34 @@
 import Register from './Components/Register';
-import {
-  BrowserRouter as Router, 
-  Routes, 
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useState,React,useEffect} from 'react';
 import Login from "./Components/Login"
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Navbar from "./Components/Navbar"
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 function App() {
   const [users,setUsers] = useState([]);
   useEffect(()=>{
     
   },[])
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // State to track login status
   return (
     <div>
+      <Navbar/>
       <div className="App">
       <Router>
-      {!isLoggedIn &&(
-               <Routes>
-                <Route
-                 path="/Signin"
-                 element={<Login setIsLoggedIn={setIsLoggedIn}/>} // Pass setIsLoggedIn to Login
-               />
-               <Route
-                 path="/Signup"
-                 element={<Register />} // Pass setIsLoggedIn to Login
-               />
-             </Routes>
-      )}
-      {isLoggedIn 
-      }
+      
+        <Routes>
+          <Route
+            path="/Signin"
+            element={<Login setIsLoggedIn={setIsLoggedIn}/>} // Pass setIsLoggedIn to Login
+          />
+          <Route
+            path="/Signup"
+            element={<Register />} // Pass setIsLoggedIn to Login
+          />
+        </Routes>
+      
+      
       </Router>
       </div>
     </div>
