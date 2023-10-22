@@ -1,7 +1,7 @@
-import Register from './Components/Register';
+import Register from './Pages/Register';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useState,React,useEffect} from 'react';
-import Login from "./Components/Login"
+import Login from "./Pages/Login"
 import Navbar from "./Components/Navbar"
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
