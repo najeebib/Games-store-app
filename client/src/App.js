@@ -4,9 +4,11 @@ import {useState,React,useEffect} from 'react';
 import Login from "./Components/Login"
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
-import Checkout from "./Components/Checkout"
-import Navbar from "./Components/Navbar"
-import MainPage from "./Components/MainPage"
+import Checkout from "./Components/Checkout";
+import Navbar from "./Components/Navbar";
+import MainPage from "./Components/MainPage";
+import Item from "./Components/Item";
+import ProductsList from './Components/ProductsList';
 function App() {
   const [users,setUsers] = useState([]);
   useEffect(()=>{
@@ -30,6 +32,22 @@ function App() {
           <Route
             path="/Home"
             element={<MainPage />}
+          />
+          <Route
+            path="/Item/Game/:id"
+            element={<Item category={"Game"} />}
+          />
+          <Route
+            path="/Products/Console/:id"
+            element={<Item category={"Console"} />}
+          />
+          <Route
+            path="/Products/Game/:id"
+            element={<ProductsList category={"Game"} />}
+          />
+          <Route
+            path="/Item/Console/:id"
+            element={<ProductsList category={"Console"} />}
           />
           <Route
             path="/Checkout"
