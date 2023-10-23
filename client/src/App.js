@@ -1,10 +1,12 @@
-import Register from './Pages/Register';
+import Register from './Components/Register';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useState,React,useEffect} from 'react';
-import Login from "./Pages/Login"
-import Navbar from "./Components/Navbar"
+import Login from "./Components/Login"
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
+import Checkout from "./Components/Checkout"
+import Navbar from "./Components/Navbar"
+import MainPage from "./Components/MainPage"
 function App() {
   const [users,setUsers] = useState([]);
   useEffect(()=>{
@@ -13,10 +15,9 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true); // State to track login status
   return (
     <div>
-      <Navbar/>
       <div className="App">
       <Router>
-      
+        <Navbar/>
         <Routes>
           <Route
             path="/Signin"
@@ -24,7 +25,15 @@ function App() {
           />
           <Route
             path="/Signup"
-            element={<Register />} // Pass setIsLoggedIn to Login
+            element={<Register />} 
+          />
+          <Route
+            path="/Home"
+            element={<MainPage />}
+          />
+          <Route
+            path="/Checkout"
+            element={<Checkout />}
           />
         </Routes>
       
