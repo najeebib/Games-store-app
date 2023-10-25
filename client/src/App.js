@@ -1,16 +1,14 @@
 import Register from './Components/Register';
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {useState,React,useEffect} from 'react';
 import Login from "./Components/Login"
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import Checkout from "./Components/Checkout";
-import Navbar from "./Components/Navbar";
 import MainPage from "./Components/MainPage";
 import Item from "./Components/Item";
 import ProductsList from './Components/ProductsList';
 function App() {
-  const [users,setUsers] = useState([]);
   useEffect(()=>{
     
   },[])
@@ -19,7 +17,6 @@ function App() {
     <div>
       <div className="App">
       <Router>
-        <Navbar/>
         <Routes>
           <Route
             path="/Signin"

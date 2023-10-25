@@ -32,6 +32,12 @@ function Navbar() {
                 
             </div>
             </div>
+            <div className='d-flex justify-content-center'>
+                <button type="button" class="btn btn-primary">
+                    Cart
+                </button>
+            </div>
+            
             {loggedIn ? (
             <div className='d-flex justify-content-center'>
                 <button className='btn btn-danger'>Logout</button>
