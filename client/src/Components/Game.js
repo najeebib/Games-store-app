@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Item({category}) {
+function Game({category}) {
   return (
     <div>
         <section class="py-5">
@@ -29,4 +29,4 @@ function Item({category}) {
   )
 }
 
-export default Item
+export default Game

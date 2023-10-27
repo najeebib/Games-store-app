@@ -6,8 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import Checkout from "./Components/Checkout";
 import MainPage from "./Components/MainPage";
-import Item from "./Components/Item";
-import ProductsList from './Components/ProductsList';
+import Game from "./Components/Game";
+import Games from './Components/Games';
+import AboutUs from './Components/AboutUs'
+import Cart from './Components/Cart'
 function App() {
   useEffect(()=>{
     
@@ -31,21 +33,22 @@ function App() {
             element={<MainPage />}
           />
           <Route
-            path="/Item/Game/:id"
-            element={<Item category={"Game"} />}
+            path="/AboutUs"
+            element={<AboutUs />}
           />
           <Route
-            path="/Products/Console/:id"
-            element={<Item category={"Console"} />}
+            path="/Cart"
+            element={<Cart />}
           />
           <Route
-            path="/Products/Game/:id"
-            element={<ProductsList category={"Game"} />}
+            path="/Game/:id"
+            element={<Game />}
           />
           <Route
-            path="/Item/Console/:id"
-            element={<ProductsList category={"Console"} />}
+            path="/Games"
+            element={<Games  />}
           />
+          
           <Route
             path="/Checkout"
             element={<Checkout />}

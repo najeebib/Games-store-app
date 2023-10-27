@@ -19,13 +19,8 @@ function Navbar() {
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">About us</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Games</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Games</a>
                 </li>
                 
                 </ul>

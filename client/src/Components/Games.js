@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from "./Navbar";
 
-function ProductsList({category}) {
+function Games({category}) {
   return (
     <div>
       <Navbar/>
@@ -9,4 +9,4 @@ function ProductsList({category}) {
   )
 }
 
-export default ProductsList
+export default Games
