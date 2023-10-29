@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 import Checkout from "./Components/Checkout";
 import MainPage from "./Components/MainPage";
-import Game from "./Components/Game";
 import Games from './Components/Games';
 import AboutUs from './Components/AboutUs'
 import Cart from './Components/Cart'
@@ -39,10 +38,6 @@ function App() {
           <Route
             path="/Cart"
             element={<Cart />}
-          />
-          <Route
-            path="/Game/:id"
-            element={<Game />}
           />
           <Route
             path="/Games"
