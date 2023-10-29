@@ -1,241 +1,33 @@
 import React from 'react'
 import Navbar from "./Navbar";
+import Game from './Game';
 
+import './Games.css'
 function Games({category}) {
+	const products = [
+		{ gameName: 'Game 1', imageSource: 'image1.jpg', price: 49.99 },
+		{ gameName: 'Game 2', imageSource: 'image2.jpg', price: 39.99 },
+		{ gameName: 'Game 3', imageSource: 'image3.jpg', price: 59.99 },
+		{ gameName: 'Game 4', imageSource: 'image4.jpg', price: 29.99 },
+		{ gameName: 'Game 5', imageSource: 'image5.jpg', price: 69.99 },
+		{ gameName: 'Game 6', imageSource: 'image6.jpg', price: 79.99 },
+		{ gameName: 'Game 7', imageSource: 'image7.jpg', price: 89.99 },
+		{ gameName: 'Game 8', imageSource: 'image8.jpg', price: 99.99 },
+	  ];
   return (
     <div>
-      <Navbar/>
-      <div class="section">
-        <div class="container">
-        <div class="row">
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="..\server\Images\Games\AC_Mirage.jpg" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="./img/product02.png" alt=""/>
-						</div>
-						<div class="product-body">
-							<h3 class="product-name"><a href="#">product name goes here</a></h3>
-							<h4 class="product-price">$980.00</h4>
-							
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-						</div>
-					</div>
-				</div>
-				
-				
-			</div>
-        </div>
+    	<Navbar/>
+		<div className="row">
+        {products.map((product, index) => (
+          <Game
+            key={index}
+            gameName={product.gameName}
+            imageSource={product.imageSource}
+            price={product.price}
+          />
+        ))}
       </div>
+
     </div>
   )
 }
