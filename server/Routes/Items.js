@@ -1,9 +1,6 @@
 import db from "../Database/Database.js";
 
 const funcs = {
-    get_home: function (req, res) {
-        res.json("hello");
-    },
     get_user: function (req, res) {
         const email = req.query.email;
         const password = req.query.password;
@@ -31,6 +28,50 @@ const funcs = {
             }
 
         });
+    },
+    get_games: function(req,res)
+    {
+        const q = `SELECT * FROM games`;
+        db.query(q, (err, data) => {
+            if (err) return res.json(err);
+            else return res.json(data);
+        });
+    },
+    get_latest_games: function(req,res)
+    {
+        const q = `SELECT *
+                    FROM games
+                    WHERE (Publisher, ReleaseDate) IN (
+                        SELECT Publisher, MAX(ReleaseDate) AS LatestDate
+                        FROM games
+                        GROUP BY Publisher
+                    )
+                    ORDER BY ReleaseDate DESC
+                    LIMIT 3;`;
+        db.query(q, (err, data) => {
+            if (err) return res.json(err);
+            else return res.json(data);
+        });
+    },
+    get_top_game: function(req,res)
+    {
+        const q = `SELECT *
+                    FROM games
+                    WHERE (Publisher, Price) IN (
+                        SELECT Publisher, MAX(Price) AS MaxPrice
+                        FROM games
+                        GROUP BY Publisher
+                    )
+                    ORDER BY Price DESC
+                    LIMIT 3;`;
+        db.query(q, (err, data) => {
+            if (err) return res.json(err);
+            else return res.json(data);
+        });
+    },
+    get_image: function(req,res)
+    {
+        
     }
 };
 
