@@ -19,7 +19,7 @@ function MainPage() {
     </div>
 
     <section class="product_section layout_padding">
-    <div class="container">
+    <div class="games_container">
       <div class="heading_container heading_center">
         <h2>
           Top selling games
@@ -214,7 +214,7 @@ function MainPage() {
     </div>
   </section>
   <section class="why_us_section layout_padding">
-    <div class="container">
+    <div class="why_us_container">
       <div class="heading_container heading_center">
         <h2>
           Why Choose Us
