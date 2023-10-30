@@ -1,10 +1,27 @@
-import React from 'react'
+import {React,useEffect, useState} from 'react'
 import Navbar from "./Navbar";
 import Game from './Game';
 import Footer from './Footer'
 
 import './Games.css'
 function Games({category}) {
+  const [games,setGames] = useState([]);
+  useEffect(() => {
+    const fetchAllGames  = async ()=>{
+      try{
+        const response = await fetch("http://localhost:5000/games");
+        const all_games = await response.json();
+        setGames(all_games);
+        console.log(all_games);
+      }
+      catch(err)
+      {
+        console.log(err);
+      }
+    };
+    
+    fetchAllGames();    
+  }, []);
 	const products = [
 		{ gameName: 'Game 1', imageSource: 'http://localhost:5000/Images/AC_Mirage.jpg', price: 49.99 },
 		{ gameName: 'Game 2', imageSource: 'http://localhost:5000/Images/AC_Mirage.jpg', price: 39.99 },
@@ -19,12 +36,12 @@ function Games({category}) {
     <div>
     	<Navbar/>
 		<div className="row">
-        {products.map((product, index) => (
+        {games.map((game, index) => (
           <Game
             key={index}
-            gameName={product.gameName}
-            imageSource={product.imageSource}
-            price={product.price}
+            gameName={game.Name}
+            imageSource={`http://localhost:5000/Images/${game.ImageName}`}
+            price={game.Price}
           />
         ))}
       </div>
