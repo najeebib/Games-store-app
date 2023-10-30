@@ -1,6 +1,7 @@
 import React from 'react'
 import './Checkout.css'
 import Navbar from "./Navbar";
+import Footer from './Footer'
 
 function Checkout() {
   return (
@@ -47,6 +48,7 @@ function Checkout() {
       
         </div>
     </section>
+    <Footer/>
     </div>
       
   )

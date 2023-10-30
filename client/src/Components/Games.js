@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from "./Navbar";
 import Game from './Game';
+import Footer from './Footer'
 
 import './Games.css'
 function Games({category}) {
@@ -27,7 +28,7 @@ function Games({category}) {
           />
         ))}
       </div>
-
+        <Footer/>
     </div>
   )
 }

@@ -12,7 +12,7 @@ function Footer() {
             </a>
 
             <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="/Home" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="/" class="nav-link px-2 text-body-secondary">Home</a></li>
             <li class="nav-item"><a href="/AboutUs" class="nav-link px-2 text-body-secondary">About Us</a></li>
             <li class="nav-item"><a href="/Games" class="nav-link px-2 text-body-secondary">Games</a></li>
             </ul>

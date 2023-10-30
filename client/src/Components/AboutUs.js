@@ -1,5 +1,7 @@
 import React from 'react'
 import Navbar from "./Navbar";
+import Footer from './Footer'
+
 import './AboutUs.css'
 import gamesPng from '../Images/games.png'
 function AboutUs() {
@@ -31,7 +33,9 @@ function AboutUs() {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
+    
   )
 }
 

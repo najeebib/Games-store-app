@@ -1,5 +1,7 @@
 import React from 'react'
 import Navbar from "./Navbar";
+import Footer from './Footer'
+
 import './Cart.css'
 function Cart() {
   return (
@@ -182,7 +184,7 @@ function Cart() {
     </div>
   </div>
 </section>
-
+      <Footer/>
     </div>
   )
 }

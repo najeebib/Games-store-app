@@ -28,7 +28,7 @@ function App() {
             element={<Register />} 
           />
           <Route
-            path="/Home"
+            path="/"
             element={<MainPage />}
           />
           <Route
