@@ -1,4 +1,4 @@
-import React from 'react'
+import {React,useEffect, useState} from 'react'
 import Navbar from "./Navbar";
 import Footer from './Footer'
 import w1 from '../Images/w1.png';
@@ -7,6 +7,38 @@ import w3 from '../Images/w3.png';
 
 import "./MainPage.css"
 function MainPage() {
+  const [latest_games,setLatest] = useState([]);
+  const [top_games,setTop] = useState([]);
+  useEffect(() => {
+    const fetchTopGames  = async ()=>{
+      try{
+        const response = await fetch("http://localhost:5000/games/top");
+        const top = await response.json();
+        setTop(top);
+        console.log(top);
+      }
+      catch(err)
+      {
+        console.log(err);
+      }
+    };
+    const fetchLatestGames  = async ()=>{
+      try{
+        const response = await fetch("http://localhost:5000/games/latest");
+        const latest = await response.json();
+        setLatest(latest);
+        console.log(latest);
+      }
+      catch(err)
+      {
+        console.log(err);
+      }
+    };
+    fetchTopGames();
+    fetchLatestGames();
+    
+  }, []);
+
   
   return (
     <div>
@@ -26,93 +58,32 @@ function MainPage() {
         </h2>
       </div>
       <div class="row">
-        <div class="col-sm-6 col-lg-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/p1.png" alt=""/>
-              <a href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </a>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Product Name
-              </h5>
-              <div class="product_info">
+        {latest_games.map((game) =>(
+            <div class="col-sm-6 col-lg-4">
+            <div class="box">
+              <div class="img-box">
+                <img src={`http://localhost:5000/Images/${game.ImageName}`} alt="" style={{ width: '400px', height: '300px' }}/>
+                <a href="" class="add_cart_btn">
+                  <span>
+                    Add To Cart
+                  </span>
+                </a>
+              </div>
+              <div class="detail-box text-center">
                 <h5>
-                  <span>$</span> 300
+                  {game.Name}
                 </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
+                <h5>
+                    <span>$</span>{game.Price}
+                  </h5>
+                
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/p2.png" alt=""/>
-              <a href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </a>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Product Name
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>$</span> 300
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/p3.png" alt=""/>
-              <a href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </a>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Product Name
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>$</span> 300
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
+        
+        
+        
         
       </div>
       <div class="heading_container heading_center">
@@ -121,93 +92,29 @@ function MainPage() {
         </h2>
       </div>
       <div class="row">
-        <div class="col-sm-6 col-lg-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/p1.png" alt=""/>
-              <a href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </a>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Product Name
-              </h5>
-              <div class="product_info">
+      {top_games.map((game) =>(
+            <div class="col-sm-6 col-lg-4">
+            <div class="box">
+              <div class="img-box">
+                <img src={`http://localhost:5000/Images/${game.ImageName}`} alt="" style={{ width: '400px', height: '300px' }}/>
+                <a href="" class="add_cart_btn">
+                  <span>
+                    Add To Cart
+                  </span>
+                </a>
+              </div>
+              <div class="detail-box text-center">
                 <h5>
-                  <span>$</span> 300
+                  {game.Name}
                 </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
+                <h5>
+                    <span>$</span>{game.Price}
+                  </h5>
+                
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/p2.png" alt=""/>
-              <a href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </a>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Product Name
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>$</span> 300
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/p3.png" alt=""/>
-              <a href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </a>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Product Name
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>$</span> 300
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
         
       </div>
       

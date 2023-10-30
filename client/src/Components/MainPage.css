@@ -23,6 +23,7 @@
   }
   .product_section .heading_container {
     margin-bottom: 25px;
+    margin-left: 30px;
   }
   
   .product_section .box {
@@ -43,7 +44,6 @@
   }
   
   .product_section .box .img-box {
-    background-color: #f8f8f8;
     width: 100%;
     height: 275px;
     display: -webkit-box;
@@ -167,6 +167,7 @@
   
   .why_us_section .heading_container {
     margin-bottom: 20px;
+    margin-left: 30px;
   }
   
   .why_us_section .box {
