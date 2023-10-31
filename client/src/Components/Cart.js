@@ -3,10 +3,10 @@ import Navbar from "./Navbar";
 import Footer from './Footer'
 
 import './Cart.css'
-function Cart() {
+function Cart({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
   return (
     <div>
-      <Navbar/>
+      <Navbar isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>
       <section class="h-100">
   <div class="container h-100 py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">

@@ -1,7 +1,17 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import "./Navbar.css"
-function Navbar() {
-    const [loggedIn, setLoggedIn] = useState(true);
+import {useNavigate} from "react-router-dom"
+
+
+function Navbar({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
+    const navigate = useNavigate();
+    const LogOut = (e)=>{
+        setID("");
+        setIsLoggedIn(false);
+    }
+    const LogIn = (e)=>{
+        navigate("/Signin");
+    }
   return (
     <div>
       <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
@@ -33,14 +43,14 @@ function Navbar() {
                 </button>
             </div>
             
-            {loggedIn ? (
+            {isLoggedIn ? (
             <div className='d-flex justify-content-center'>
-                <button className='btn btn-danger'>Logout</button>
+                <button className='btn btn-danger' onClick={LogOut}>Logout</button>
             </div>
             
             ) : (
             <div className='d-flex justify-content-center'>
-                <button className='btn btn-primary'>Login</button>
+                <button className='btn btn-primary' onClick={LogIn}>Login</button>
             </div>
             )}
             

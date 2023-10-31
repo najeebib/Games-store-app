@@ -6,7 +6,7 @@ import w2 from '../Images/w2.png';
 import w3 from '../Images/w3.png';
 
 import "./MainPage.css"
-function MainPage() {
+function MainPage({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
   const [latest_games,setLatest] = useState([]);
   const [top_games,setTop] = useState([]);
   useEffect(() => {
@@ -42,7 +42,7 @@ function MainPage() {
   
   return (
     <div>
-      <Navbar/>
+      <Navbar isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>
       <div className="home-container">
       <div className="welcome-message">
         <h1>Welcome to the Game Store</h1>

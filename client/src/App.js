@@ -13,7 +13,8 @@ function App() {
   useEffect(()=>{
     
   },[])
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // State to track login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+  const [userID, setID] = useState("");
   return (
     <div>
       <div className="App">
@@ -21,7 +22,7 @@ function App() {
         <Routes>
           <Route
             path="/Signin"
-            element={<Login setIsLoggedIn={setIsLoggedIn}/>} // Pass setIsLoggedIn to Login
+            element={<Login setIsLoggedIn={setIsLoggedIn} setID={setID}/>} // Pass setIsLoggedIn to Login
           />
           <Route
             path="/Signup"
@@ -29,15 +30,15 @@ function App() {
           />
           <Route
             path="/"
-            element={<MainPage />}
+            element={<MainPage isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>}
           />
           <Route
             path="/AboutUs"
-            element={<AboutUs />}
+            element={<AboutUs isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>}
           />
           <Route
             path="/Cart"
-            element={<Cart />}
+            element={<Cart isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>}
           />
           <Route
             path="/Games"
@@ -46,7 +47,7 @@ function App() {
           
           <Route
             path="/Checkout"
-            element={<Checkout />}
+            element={<Checkout isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>}
           />
         </Routes>
       

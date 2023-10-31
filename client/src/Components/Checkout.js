@@ -3,10 +3,10 @@ import './Checkout.css'
 import Navbar from "./Navbar";
 import Footer from './Footer'
 
-function Checkout() {
+function Checkout({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
   return (
     <div>
-      <Navbar/>
+      <Navbar isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>
       <section class="Back">
         <div class="container p-0">
         

@@ -1,12 +1,12 @@
 import { React, useState } from 'react'
 import "./Login.css"
-import {Link} from "react-router-dom"
-function Login() {
+import {Link,useNavigate} from "react-router-dom"
+function Login({ setIsLoggedIn ,setID}) {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     
 
-      
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();//login onclick
         if(password === "" || email === "")
@@ -26,7 +26,9 @@ function Login() {
                     const data = await response.json();
                     if(data.length === 1)
                     {
-                        console.log("logged in");
+                        setIsLoggedIn(true);
+                        setID(data[0].UserID);
+                        navigate("/");
                     }
                     else
                         console.log("error");

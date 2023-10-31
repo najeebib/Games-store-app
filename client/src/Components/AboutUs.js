@@ -4,10 +4,10 @@ import Footer from './Footer'
 
 import './AboutUs.css'
 import gamesPng from '../Images/games.png'
-function AboutUs() {
+function AboutUs({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
   return (
     <div>
-      <Navbar/>
+      <Navbar isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>
       <section class="about_section">
         <div class="container-fluid ">
           <div class="row">
