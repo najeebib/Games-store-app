@@ -63,11 +63,7 @@ function MainPage({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
             <div class="box">
               <div class="img-box">
                 <img src={`http://localhost:5000/Images/${game.ImageName}`} alt="" style={{ width: '400px', height: '300px' }}/>
-                <a href="" class="add_cart_btn">
-                  <span>
-                    Add To Cart
-                  </span>
-                </a>
+                
               </div>
               <div class="detail-box text-center">
                 <h5>
@@ -97,11 +93,7 @@ function MainPage({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
             <div class="box">
               <div class="img-box">
                 <img src={`http://localhost:5000/Images/${game.ImageName}`} alt="" style={{ width: '400px', height: '300px' }}/>
-                <a href="" class="add_cart_btn">
-                  <span>
-                    Add To Cart
-                  </span>
-                </a>
+                
               </div>
               <div class="detail-box text-center">
                 <h5>

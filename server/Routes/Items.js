@@ -69,10 +69,78 @@ const funcs = {
             else return res.json(data);
         });
     },
-    get_image: function(req,res)
+    get_user_cart:function(req,res)
     {
-        
-    }
+        const userID = req.body.userID;
+        const q = `SELECT * FROM cart WHERE UserID= ?`;
+        db.query(q,[userID], (err, data) => {
+            if (err) return res.json(err);
+            else return res.json(data);
+        });
+    },
+    post_to_cart: function(req,res)
+    {
+        const name = req.body.name;
+        const price = req.body.price;
+        const userID = req.body.userID;
+        const gameID = req.body.gameID;
+        const gameIMG = req.body.gameIMG;
+        const q = "INSERT INTO cart (UserID, GameID, Name, Price,ImageName) VALUES (?, ?, ?, ?, ?)";
+    
+        db.query(q, [userID, gameID, name, price, gameIMG], (err, result) => {
+            if (err) {
+                console.error('Error inserting user:', err);
+                return res.status(500).json({ error: 'Game insertion failed' });
+            } else {
+                console.log('User inserted successfully');
+                return res.status(201).json({ message: 'Game inserted to cart inserted successfully' });
+            }
+
+        });
+    },
+    delete_from_cart: function(req,res)
+    {
+        const userID = req.body.userID;
+        const gameID = req.body.gameID;
+
+        const q = "SELECT CartID FROM cart WHERE UserID = ? AND GameID = ?"
+        db.query(q,[userID,gameID], (err, data) =>{
+            if (err) return res.json(err);
+            else
+            {
+                const cartId = data[0].CartID;
+
+                const qDelete = "DELETE FROM cart WHERE CartID = ?";
+                db.query(qDelete, [cartId], (error, result) => {
+                    if (err) return res.json(error);
+                    else res.status(201).json({ message: 'Gmae removed from cart successfully' });
+                });
+            } 
+        })
+    },
+    delete_all_games_from_cart: function(req,res)
+    {
+        const userID = req.body.userID;
+
+        const q = "SELECT CartID FROM cart WHERE UserID = ?"
+        db.query(q,[userID], (err, data) =>{
+            if (err) return res.json(err);
+            else
+            {
+                for(let i = 0; i<data.length;i++)
+                {
+                    const cartId = data[i].CartID;
+
+                    const qDelete = "DELETE FROM cart WHERE CartID = ?";
+                    db.query(qDelete, [cartId], (error, result) => {
+                        if (err) return res.json(error);
+                        else res.status(201).json({ message: 'Gmae removed from cart successfully' });
+                    });
+                }
+                
+            } 
+        })
+    },
 };
 
 export default funcs;
