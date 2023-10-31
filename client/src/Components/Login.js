@@ -1,10 +1,17 @@
 import { React, useState } from 'react'
 import "./Login.css"
 import {Link,useNavigate} from "react-router-dom"
-function Login({ setIsLoggedIn ,setID}) {
+import { useSelector, useDispatch } from 'react-redux'
+import { setLogin } from '../Redux/auth'
+import { setID } from '../Redux/userID';
+function Login() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
-    
+    const isLogged = useSelector((state) => state.auth.isLoggedIn)
+    const id = useSelector((state) => state.id.ID)
+    const dispatch = useDispatch()
+
+
 
     const navigate = useNavigate();
     const handleSubmit = (e) => {
@@ -26,13 +33,14 @@ function Login({ setIsLoggedIn ,setID}) {
                     const data = await response.json();
                     if(data.length === 1)
                     {
-                        setIsLoggedIn(true);
-                        setID(data[0].UserID);
+                        dispatch(setLogin(true));
+                        dispatch(setID(data[0].UserID));
                         navigate("/");
+
                     }
                     else
                         console.log("error");
-                    console.log(data);
+                    //console.log(data);
                   } else {
                     console.error('GET Error - Response Status:', response.status);
                   }

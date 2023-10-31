@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route
             path="/Signin"
-            element={<Login setIsLoggedIn={setIsLoggedIn} setID={setID}/>} // Pass setIsLoggedIn to Login
+            element={<Login />} // Pass setIsLoggedIn to Login
           />
           <Route
             path="/Signup"

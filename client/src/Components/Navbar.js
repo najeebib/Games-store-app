@@ -1,13 +1,21 @@
 import { React } from 'react'
 import "./Navbar.css"
 import {useNavigate} from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux'
+import { setLogin } from '../Redux/auth'
+import { setID } from '../Redux/userID';
 
 
-function Navbar({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
+function Navbar() {
+    const isLogged = useSelector((state) => state.auth.isLoggedIn)
+    const id = useSelector((state) => state.id.ID)
+    const dispatch = useDispatch()
+
     const navigate = useNavigate();
     const LogOut = (e)=>{
-        setID("");
-        setIsLoggedIn(false);
+        dispatch(setLogin(false));
+        dispatch(setID(-1));
+        navigate("/");
     }
     const LogIn = (e)=>{
         navigate("/Signin");
@@ -43,7 +51,7 @@ function Navbar({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
                 </button>
             </div>
             
-            {isLoggedIn ? (
+            {isLogged ? (
             <div className='d-flex justify-content-center'>
                 <button className='btn btn-danger' onClick={LogOut}>Logout</button>
             </div>
