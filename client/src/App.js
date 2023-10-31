@@ -42,7 +42,7 @@ function App() {
           />
           <Route
             path="/Games"
-            element={<Games  />}
+            element={<Games  isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>}
           />
           
           <Route

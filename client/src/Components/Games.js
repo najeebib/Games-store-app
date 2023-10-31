@@ -22,7 +22,40 @@ function Games({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
     
     fetchAllGames();    
   }, []);
-	
+	const addToCart = (index,name,price,img) => {
+    
+    const registerUser = async () => {
+      try {
+        console.log('Index:', index);
+    console.log('Price:', price);
+    console.log('Name:', name);
+        const game = {
+          GameID: index,
+          UserID: userID,
+          Name: name,
+          Price: price, 
+          ImageName: img
+        };
+        const response = await fetch('http://localhost:5000/cart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(game), // Convert user object to JSON
+        });
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data);
+        } else {
+          console.error('GET Error - Response Status:', response.status);
+        }
+      } catch (err) {
+        console.error('GET Error:', err);
+      }
+  };
+
+  registerUser();
+  };
   return (
     <div>
     	<Navbar isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>
@@ -33,6 +66,7 @@ function Games({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
             gameName={game.Name}
             imageSource={`http://localhost:5000/Images/${game.ImageName}`}
             price={game.Price}
+            addToCart={() => addToCart(index,game.Name,game.Price,game.ImageName)}
           />
         ))}
       </div>

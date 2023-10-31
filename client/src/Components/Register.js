@@ -24,7 +24,7 @@ function Register() {
             name: name,
             birthdate: birthdate, 
           };
-            const fetchAllUsers = async () => {
+            const registerUser = async () => {
               try {
                 const response = await fetch('http://localhost:5000/user', {
                   method: 'POST',
@@ -44,7 +44,7 @@ function Register() {
               }
           };
       
-          fetchAllUsers();
+          registerUser();
     
         }
 
