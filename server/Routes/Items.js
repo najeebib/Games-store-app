@@ -71,7 +71,8 @@ const funcs = {
     },
     get_user_cart:function(req,res)
     {
-        const userID = req.body.userID;
+        const userID = req.params.userID;
+        console.log(userID);
         const q = `SELECT * FROM cart WHERE UserID= ?`;
         db.query(q,[userID], (err, data) => {
             if (err) return res.json(err);

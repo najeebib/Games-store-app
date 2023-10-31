@@ -1,6 +1,5 @@
 import {React,useEffect, useState} from 'react'
 import { useSelector } from 'react-redux'
-
 import Navbar from "./Navbar";
 import Game from './Game';
 import Footer from './Footer'
