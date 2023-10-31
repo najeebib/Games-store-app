@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom"
 
 function Footer() {
   return (
@@ -12,9 +13,9 @@ function Footer() {
             </a>
 
             <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="/" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="/AboutUs" class="nav-link px-2 text-body-secondary">About Us</a></li>
-            <li class="nav-item"><a href="/Games" class="nav-link px-2 text-body-secondary">Games</a></li>
+            <li class="nav-item"><Link to="/" class="nav-link px-2 text-body-secondary">Home</Link></li>
+            <li class="nav-item"><Link to="/AboutUs" class="nav-link px-2 text-body-secondary">About Us</Link></li>
+            <li class="nav-item"><Link to="/Games" class="nav-link px-2 text-body-secondary">Games</Link></li>
             </ul>
         </footer>
         </div>

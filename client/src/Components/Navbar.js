@@ -1,6 +1,6 @@
 import { React } from 'react'
 import "./Navbar.css"
-import {useNavigate} from "react-router-dom"
+import {useNavigate,Link} from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { setLogin } from '../Redux/auth'
 import { setID } from '../Redux/userID';
@@ -32,13 +32,14 @@ function Navbar() {
             <div class="collapse navbar-collapse" id="navbarsExample02">
                 <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <Link class="nav-link active"  to="/">Home</Link>
+
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/AboutUs">About us</a>
+                    <Link class="nav-link active" to="/AboutUs">About Us</Link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/Games">Games</a>
+                <Link class="nav-link active" to="/AboutUs">Games</Link>
                 </li>
                 
                 </ul>

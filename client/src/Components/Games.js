@@ -4,7 +4,7 @@ import Game from './Game';
 import Footer from './Footer'
 
 import './Games.css'
-function Games({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
+function Games() {
   const [games,setGames] = useState([]);
   useEffect(() => {
     const fetchAllGames  = async ()=>{
@@ -31,7 +31,7 @@ function Games({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
     console.log('Name:', name);
         const game = {
           GameID: index,
-          UserID: userID,
+          //UserID: userID,
           Name: name,
           Price: price, 
           ImageName: img
@@ -58,7 +58,7 @@ function Games({ isLoggedIn, userID,setIsLoggedIn ,setID }) {
   };
   return (
     <div>
-    	<Navbar isLoggedIn={isLoggedIn} userID={userID} setIsLoggedIn={setIsLoggedIn} setID={setID}/>
+    	<Navbar/>
 		<div className="row">
         {games.map((game, index) => (
           <Game
