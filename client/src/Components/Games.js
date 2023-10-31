@@ -1,4 +1,6 @@
 import {React,useEffect, useState} from 'react'
+import { useSelector } from 'react-redux'
+
 import Navbar from "./Navbar";
 import Game from './Game';
 import Footer from './Footer'
@@ -6,6 +8,7 @@ import Footer from './Footer'
 import './Games.css'
 function Games() {
   const [games,setGames] = useState([]);
+  const id = useSelector((state) => state.id.ID)
   useEffect(() => {
     const fetchAllGames  = async ()=>{
       try{
@@ -26,16 +29,14 @@ function Games() {
     
     const registerUser = async () => {
       try {
-        console.log('Index:', index);
-    console.log('Price:', price);
-    console.log('Name:', name);
         const game = {
-          GameID: index,
-          //UserID: userID,
-          Name: name,
-          Price: price, 
-          ImageName: img
+          gameID: index,
+          userID: id,
+          name: name,
+          price: price, 
+          gameIMG: img
         };
+        console.log(JSON.stringify(game));
         const response = await fetch('http://localhost:5000/cart', {
           method: 'POST',
           headers: {

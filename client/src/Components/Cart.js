@@ -1,9 +1,26 @@
-import React from 'react'
+import {React,useEffect, useState} from 'react'
 import Navbar from "./Navbar";
 import Footer from './Footer'
 
 import './Cart.css'
 function Cart() {
+  const [games,setGames] = useState([]);
+  useEffect(() => {
+    const fetchAllGames  = async ()=>{
+      try{
+        const response = await fetch("http://localhost:5000/games");
+        const all_games = await response.json();
+        setGames(all_games);
+        console.log(all_games);
+      }
+      catch(err)
+      {
+        console.log(err);
+      }
+    };
+    
+    fetchAllGames();    
+  }, []);
   return (
     <div>
       <Navbar/>
