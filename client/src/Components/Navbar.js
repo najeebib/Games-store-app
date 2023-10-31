@@ -20,6 +20,9 @@ function Navbar() {
     const LogIn = (e)=>{
         navigate("/Signin");
     }
+    const Cart = (e)=>{
+        navigate("/Cart");
+    }
   return (
     <div>
       <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
@@ -39,7 +42,7 @@ function Navbar() {
                     <Link class="nav-link active" to="/AboutUs">About Us</Link>
                 </li>
                 <li class="nav-item">
-                <Link class="nav-link active" to="/AboutUs">Games</Link>
+                <Link class="nav-link active" to="/Games">Games</Link>
                 </li>
                 
                 </ul>
@@ -47,7 +50,7 @@ function Navbar() {
             </div>
             </div>
             <div className='d-flex justify-content-center'>
-                <button type="button" class="btn btn-primary">
+                <button type="button" class="btn btn-primary" onClick={Cart}>
                     Cart
                 </button>
             </div>

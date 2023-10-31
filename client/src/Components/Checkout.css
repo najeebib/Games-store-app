@@ -1,33 +1,18 @@
 
-.Back{
-    background-color: #eee;
-    height: 90vh;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
 
-.container {
-    height: 100%; /* Set the height to 100% of the viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 500px;
-    margin: auto;
-    color: black;
-    border-radius: 20px;
-    padding: 10px;
+#container {
+    height: 80vh;
   }
   
-.card {
+#checkout {
     max-width: 500px;
     margin: auto;
     color: black;
     border-radius: 20 px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 p {
