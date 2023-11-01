@@ -101,11 +101,10 @@ const funcs = {
     },
     delete_from_cart: function(req,res)
     {
-        const userID = req.body.userID;
-        const gameID = req.body.gameID;
+        const cartID = req.body.cartID;
 
-        const q = "SELECT CartID FROM cart WHERE UserID = ? AND GameID = ?"
-        db.query(q,[userID,gameID], (err, data) =>{
+        const q = "SELECT CartID FROM cart WHERE CartID = ?"
+        db.query(q,[cartID], (err, data) =>{
             if (err) return res.json(err);
             else
             {

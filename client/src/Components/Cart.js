@@ -1,11 +1,15 @@
 import {React,useEffect, useState} from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector ,useDispatch} from 'react-redux'
 import Navbar from "./Navbar";
 import Footer from './Footer'
 import x from '../Images/x.svg';
-
+import { setTotal } from '../Redux/total'
+import {useNavigate} from "react-router-dom"
 import './Cart.css'
 function Cart() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+
   const [games,setGames] = useState([]);
   const id = useSelector((state) => state.id.ID)
   useEffect(() => {
@@ -24,13 +28,12 @@ function Cart() {
     
     fetchAllGames();    
   }, []);
-  const Remove = (Gameid) => {
+  const Remove = (CartId,GameID) => {
     
     const removeFromCart = async () => {
       try {
         const gameID = {
-          gameID: Gameid,
-          userID: id,
+          cartID: CartId,
         };
         const response = await fetch('http://localhost:5000/cart', {
           method: 'DELETE',
@@ -41,8 +44,15 @@ function Cart() {
         });
   
         if (response.ok) {
-          console.log(gameID);
-          setGames(prevGames => prevGames.filter(game => game.GameID !== gameID.gameID));
+          let removed = false;
+        const updatedGames = games.filter(game => {
+          if (!removed && game.GameID === GameID) {
+            removed = true;
+            return false;
+          }
+          return true;
+        });
+        setGames(updatedGames);
           const data = await response.json();
           console.log(data); 
         } else {
@@ -55,6 +65,15 @@ function Cart() {
   
     removeFromCart();
     
+  }
+  const Checkout = ()=>{
+    let sum = 0;
+    games.map((game) =>(
+      sum +=game.Price
+    ))
+    console.log(sum);
+    dispatch(setTotal(sum));
+    navigate('/Checkout')
   }
   return (
     <div>
@@ -90,7 +109,7 @@ function Cart() {
                           <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
                         </div>
                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <button class="btn btn-danger btn-lg" onClick={() => Remove(game.GameID)}>
+                        <button class="btn btn-danger btn-lg" onClick={() => Remove(game.CartID,game.GameID)}>
                           <i class="fas fa-trash fa-2x"></i>
                           <img src={x} style={{ width: '30px', height: '30px' }}></img>
                         </button>
@@ -105,7 +124,7 @@ function Cart() {
               
               <div class="card">
                 <div class="card-body">
-                  <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+                  <button type="button" class="btn btn-warning btn-block btn-lg" onClick={() => Checkout()}>Proceed to Pay</button>
                 </div>
               </div>
 
