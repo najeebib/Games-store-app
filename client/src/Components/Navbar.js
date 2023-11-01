@@ -4,6 +4,7 @@ import {useNavigate,Link} from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { setLogin } from '../Redux/auth'
 import { setID } from '../Redux/userID';
+import cartIMG from '../Images/cart.svg';
 
 
 function Navbar() {
@@ -51,7 +52,7 @@ function Navbar() {
             </div>
             <div className='d-flex justify-content-center'>
                 <button type="button" class="btn btn-primary" onClick={Cart}>
-                    Cart
+                <img src={cartIMG} style={{ width: '40px', height: '25px' }}></img>
                 </button>
             </div>
             
