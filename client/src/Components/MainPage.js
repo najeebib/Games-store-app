@@ -9,7 +9,7 @@ import "./MainPage.css"
 function MainPage() {
   const [latest_games,setLatest] = useState([]);
   const [top_games,setTop] = useState([]);
-  useEffect(() => {
+  useEffect(() => {//fetch games from server to display
     const fetchTopGames  = async ()=>{
       try{
         const response = await fetch("http://localhost:5000/games/top");

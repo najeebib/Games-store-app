@@ -14,7 +14,6 @@ export const idSlice  = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { setID } = idSlice .actions
 
 export default idSlice .reducer

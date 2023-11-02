@@ -10,6 +10,7 @@ function Games() {
   const id = useSelector((state) => state.id.ID)
   useEffect(() => {
     const fetchAllGames  = async ()=>{
+      //send a request to the server to get all the games in the database
       try{
         const response = await fetch("http://localhost:5000/games");
         const all_games = await response.json();
@@ -25,8 +26,9 @@ function Games() {
     fetchAllGames();    
   }, []);
 	const addToCart = (index,name,price,img) => {
+    //add the game to the user's cart by sending a post request
     
-    const registerUser = async () => {
+    const addToCart = async () => {
       try {
         const game = {
           gameID: index,
@@ -54,7 +56,7 @@ function Games() {
       }
   };
 
-  registerUser();
+  addToCart();
   };
   return (
     <div>

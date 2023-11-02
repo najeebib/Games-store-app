@@ -16,6 +16,7 @@ function Checkout() {
     const [expire,setExpire] = useState("");
     const [csv,setCsv] = useState("");
     const Pay = ()=>{
+      //send request to the server to remove all the user's items from the cart after the checkout is done
         const removeAll = async () => {
             try {
               const userID = {

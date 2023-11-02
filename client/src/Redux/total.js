@@ -14,7 +14,6 @@ export const totalSlice  = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
 export const { setTotal } = totalSlice .actions
 
 export default totalSlice .reducer

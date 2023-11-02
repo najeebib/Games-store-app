@@ -13,6 +13,7 @@ function Cart() {
   const [games,setGames] = useState([]);
   const id = useSelector((state) => state.id.ID)
   useEffect(() => {
+    //send a get request to the server to retrieve the users items in the cart
     const fetchAllGames  = async ()=>{
       try{
         const response = await fetch(`http://localhost:5000/cart/${id}`);
@@ -31,6 +32,8 @@ function Cart() {
   const Remove = (CartId,GameID) => {
     
     const removeFromCart = async () => {
+      //remove one item from  the cart when user clickes the remove button
+      //send http request to do so
       try {
         const gameID = {
           cartID: CartId,
@@ -67,6 +70,7 @@ function Cart() {
     
   }
   const Checkout = ()=>{
+    //update the total sum state and redirect the suer to the checkout page
     let sum = 0;
     games.map((game) =>(
       sum +=game.Price
