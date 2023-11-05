@@ -3,11 +3,14 @@ import { useSelector } from 'react-redux'
 import Navbar from "./Navbar";
 import Game from './Game';
 import Footer from './Footer'
+import {useNavigate} from "react-router-dom"
 
 import './Games.css'
 function Games() {
   const [games,setGames] = useState([]);
   const id = useSelector((state) => state.id.ID)
+  const isLogged = useSelector((state) => state.auth.isLoggedIn);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchAllGames  = async ()=>{
       //send a request to the server to get all the games in the database
@@ -26,37 +29,43 @@ function Games() {
     fetchAllGames();    
   }, []);
 	const addToCart = (index,name,price,img) => {
-    //add the game to the user's cart by sending a post request
+    if(isLogged)
+    {
+      //add the game to the user's cart by sending a post request
     
-    const addToCart = async () => {
-      try {
-        const game = {
-          gameID: index,
-          userID: id,
-          name: name,
-          price: price, 
-          gameIMG: img
-        };
-        console.log(JSON.stringify(game));
-        const response = await fetch('http://localhost:5000/cart', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(game), // Convert user object to JSON
-        });
-        if (response.ok) {
-          const data = await response.json();
-          console.log(data);
-        } else {
-          console.error('GET Error - Response Status:', response.status);
-        }
-      } catch (err) {
-        console.error('GET Error:', err);
-      }
-  };
+        const addToCart = async () => {
+          try {
+            const game = {
+              gameID: index,
+              userID: id,
+              name: name,
+              price: price, 
+              gameIMG: img
+            };
+            console.log(JSON.stringify(game));
+            const response = await fetch('http://localhost:5000/cart', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(game), // Convert user object to JSON
+            });
+            if (response.ok) {
+              const data = await response.json();
+              console.log(data);
+            } else {
+              console.error('GET Error - Response Status:', response.status);
+            }
+          } catch (err) {
+            console.error('GET Error:', err);
+          }
+      };
 
-  addToCart();
+      addToCart();
+    }
+    else
+      navigate("/Signin");
+    
   };
   return (
     <div>

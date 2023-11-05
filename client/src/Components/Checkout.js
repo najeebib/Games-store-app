@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState,useEffect } from 'react'
 import './Checkout.css'
 import Navbar from "./Navbar";
 import Footer from './Footer'
@@ -10,11 +10,16 @@ function Checkout() {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const id = useSelector((state) => state.id.ID)  
-    const total = useSelector((state) => state.Total.value)  
+    const total = useSelector((state) => state.Total.value)
+    const isLogged = useSelector((state) => state.auth.isLoggedIn)  
     const [name,setName] = useState("");
     const [card,setCard] = useState("");
     const [expire,setExpire] = useState("");
     const [csv,setCsv] = useState("");
+    useEffect(() => {
+      if(!isLogged) 
+        navigate("/Signin");      
+    }, []);
     const Pay = ()=>{
       //send request to the server to remove all the user's items from the cart after the checkout is done
         const removeAll = async () => {

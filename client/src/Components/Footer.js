@@ -16,6 +16,8 @@ function Footer() {
             <li class="nav-item"><Link to="/" class="nav-link px-2 text-body-secondary">Home</Link></li>
             <li class="nav-item"><Link to="/AboutUs" class="nav-link px-2 text-body-secondary">About Us</Link></li>
             <li class="nav-item"><Link to="/Games" class="nav-link px-2 text-body-secondary">Games</Link></li>
+            <li class="nav-item"><Link to="/Signin" class="nav-link px-2 text-body-secondary">Login</Link></li>
+            <li class="nav-item"><Link to="/Signup" class="nav-link px-2 text-body-secondary">Register</Link></li>
             </ul>
         </footer>
         </div>

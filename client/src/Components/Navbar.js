@@ -8,9 +8,9 @@ import cartIMG from '../Images/cart.svg';
 
 
 function Navbar() {
-    const isLogged = useSelector((state) => state.auth.isLoggedIn)
-    const id = useSelector((state) => state.id.ID)
-    const dispatch = useDispatch()
+    const isLogged = useSelector((state) => state.auth.isLoggedIn);
+    const id = useSelector((state) => state.id.ID);
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
     const LogOut = (e)=>{
@@ -22,7 +22,10 @@ function Navbar() {
         navigate("/Signin");
     }
     const Cart = (e)=>{
-        navigate("/Cart");
+        if(isLogged)
+            navigate("/Cart");
+        else
+            navigate("/Signin");
     }
   return (
     <div>

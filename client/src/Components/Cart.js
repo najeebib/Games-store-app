@@ -11,8 +11,11 @@ function Cart() {
   const navigate = useNavigate();
 
   const [games,setGames] = useState([]);
+  const isLogged = useSelector((state) => state.auth.isLoggedIn)
   const id = useSelector((state) => state.id.ID)
   useEffect(() => {
+    if(!isLogged) 
+      navigate("/Signin");
     //send a get request to the server to retrieve the users items in the cart
     const fetchAllGames  = async ()=>{
       try{
