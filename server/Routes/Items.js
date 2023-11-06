@@ -1,13 +1,23 @@
 import db from "../Database/Database.js";
+import bcrypt from 'bcrypt'
 
+const saltRounds = 10;
 const funcs = {
     get_user: function (req, res) {
         const email = req.query.email;
         const password = req.query.password;
-        const q = `SELECT * FROM users WHERE email= ? AND password= ?`;
+        const q = `SELECT * FROM users WHERE email= ?`;
         db.query(q,[email,password], (err, data) => {
             if (err) return res.json(err);
-            else return res.json(data);
+            if(data.length > 0)
+            {
+                bcrypt.compare(password,data[0].Password, (error, response)=>{
+                    if(response)
+                        res.send(data);
+                    else
+                        res.status(404).send("wrong email or password");
+                })
+            }
         });
     },
     post_user: function(req, res)
@@ -17,17 +27,18 @@ const funcs = {
         const name = req.body.name;
         const birthdate = req.body.birthdate;
         const q = "INSERT INTO users (Email, Password, Username, Birthdate) VALUES (?, ?, ?, ?)";
+        bcrypt.hash(password,saltRounds, (err,hash)=>{
+            db.query(q, [email, hash, name, birthdate], (err, result) => {
+                if (err) {
+                    console.error('Error inserting user:', err);
+                    return res.status(500).json({ error: 'User insertion failed' });
+                } else {
+                    console.log('User inserted successfully');
+                    return res.status(201).json({ message: 'User inserted successfully' });
+                }
     
-        db.query(q, [email, password, name, birthdate], (err, result) => {
-            if (err) {
-                console.error('Error inserting user:', err);
-                return res.status(500).json({ error: 'User insertion failed' });
-            } else {
-                console.log('User inserted successfully');
-                return res.status(201).json({ message: 'User inserted successfully' });
-            }
-
-        });
+            });
+        })
     },
     get_games: function(req,res)
     {
