@@ -36,6 +36,7 @@ function Register() {
                 if (response.ok) {
                   const data = await response.json();
                   console.log(data);
+                  navigate('/Signin')
                 } else {
                   console.error('GET Error - Response Status:', response.status);
                 }

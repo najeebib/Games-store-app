@@ -84,10 +84,6 @@ function Login() {
                         <button className='btn btn-primary' onClick={handleSubmit}>Sign In</button>
                     </div>
                     <p className='text-right ms-2'>
-                        Forgot password?{' '}
-                        <Link to="/Signup">New pssword</Link>
-                    </p>
-                    <p className='text-right ms-2'>
                         Don't have an account?{' '}
                         <Link to="/Signup">Register here</Link>
                     </p>
