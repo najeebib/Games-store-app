@@ -1,0 +1,23 @@
+.Pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.Pagination button {
+    width: 40px;
+    height: 40px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0 10px;
+    border-radius: 6px;
+    cursor: pointer;    
+}
+
+.Pagination button.active {
+    font-weight: 900;
+    border-color: #101010;
+    background: #101010;
+}

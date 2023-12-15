@@ -4,9 +4,12 @@ import Navbar from "./Navbar";
 import Game from './Game';
 import Footer from './Footer'
 import {useNavigate} from "react-router-dom"
+import Pagination from './Pagination';
 
 import './Games.css'
 function Games() {
+  const [gamesPerPage, setGamesPerPage] = useState(8);
+  const [currentPage, setCurrentPage] = useState(1);
   const [games,setGames] = useState([]);
   const id = useSelector((state) => state.id.ID)
   const isLogged = useSelector((state) => state.auth.isLoggedIn);
@@ -67,11 +70,14 @@ function Games() {
       navigate("/Signin");
     
   };
+  const lastGameIndex = currentPage * gamesPerPage;
+  const firstGameInde = lastGameIndex - gamesPerPage;
+  const currentGames = games.slice(firstGameInde,lastGameIndex)
   return (
     <div>
     	<Navbar/>
 		<div className="row">
-        {games.map((game, index) => (
+        {currentGames.map((game, index) => (
           <Game
             key={index}
             gameName={game.Name}
@@ -81,7 +87,8 @@ function Games() {
           />
         ))}
       </div>
-        <Footer/>
+      <Pagination totalGames={games.length} gamesPerPage={gamesPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+      <Footer/>
     </div>
   )
 }
