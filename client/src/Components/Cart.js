@@ -19,7 +19,7 @@ function Cart() {
     //send a get request to the server to retrieve the users items in the cart
     const fetchAllGames  = async ()=>{
       try{
-        const response = await fetch(`http://15.160.211.183/cart/${id}`);
+        const response = await fetch(`https://15.160.211.183/cart/${id}`);
         const cart = await response.json();
         setGames(cart);
         console.log(cart);
@@ -41,7 +41,7 @@ function Cart() {
         const gameID = {
           cartID: CartId,
         };
-        const response = await fetch('http://15.160.211.183/cart', {
+        const response = await fetch('https://15.160.211.183/cart', {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ function Cart() {
                     <div class="row d-flex justify-content-between align-items-center">
                       <div class="col-md-2 col-lg-2 col-xl-2">
                         <img
-                          src={`http://15.160.211.183/Images/${game.ImageName}`}
+                          src={`https://15.160.211.183/Images/${game.ImageName}`}
                           class="img-fluid rounded-3" alt="Cotton T-shirt"
                           style={{ width: '150px', height: '150px' }}/>
                         </div>
