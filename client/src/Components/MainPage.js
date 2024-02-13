@@ -12,7 +12,7 @@ function MainPage() {
   useEffect(() => {//fetch games from server to display
     const fetchTopGames  = async ()=>{
       try{
-        const response = await fetch("http://localhost:5000/games/top");
+        const response = await fetch("http://15.160.153.186:5000/games/top");
         const top = await response.json();
         setTop(top);
         console.log(top);
@@ -24,7 +24,7 @@ function MainPage() {
     };
     const fetchLatestGames  = async ()=>{
       try{
-        const response = await fetch("http://localhost:5000/games/latest");
+        const response = await fetch("http://15.160.153.186:5000/games/latest");
         const latest = await response.json();
         setLatest(latest);
         console.log(latest);
