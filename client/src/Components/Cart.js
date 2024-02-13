@@ -19,7 +19,7 @@ function Cart() {
     //send a get request to the server to retrieve the users items in the cart
     const fetchAllGames  = async ()=>{
       try{
-        const response = await fetch(`http://15.160.153.186:5000/cart/${id}`);
+        const response = await fetch(`http://localhost:5000/cart/${id}`);
         const cart = await response.json();
         setGames(cart);
         console.log(cart);
@@ -41,7 +41,7 @@ function Cart() {
         const gameID = {
           cartID: CartId,
         };
-        const response = await fetch('http://15.160.153.186:5000/cart', {
+        const response = await fetch('http://localhost:5000/cart', {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

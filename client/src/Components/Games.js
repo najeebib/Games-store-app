@@ -18,7 +18,7 @@ function Games() {
     const fetchAllGames  = async ()=>{
       //send a request to the server to get all the games in the database
       try{
-        const response = await fetch("http://15.160.153.186:5000/games");
+        const response = await fetch("http://localhost:5000/games");
         const all_games = await response.json();
         setGames(all_games);
         console.log(all_games);
@@ -46,7 +46,7 @@ function Games() {
               gameIMG: img
             };
             console.log(JSON.stringify(game));
-            const response = await fetch('http://15.160.153.186:5000/cart', {
+            const response = await fetch('http://localhost:5000/cart', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ function Games() {
           <Game
             key={index}
             gameName={game.Name}
-            imageSource={`http://15.160.153.186:5000/Images/${game.ImageName}`}
+            imageSource={`http://localhost:5000/Images/${game.ImageName}`}
             price={game.Price}
             addToCart={() => addToCart(index,game.Name,game.Price,game.ImageName)}
           />
