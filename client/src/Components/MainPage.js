@@ -12,7 +12,7 @@ function MainPage() {
   useEffect(() => {//fetch games from server to display
     const fetchTopGames  = async ()=>{
       try{
-        const response = await fetch("https//15.160.211.183/games/top");
+        const response = await fetch("https://www.store-server.shop/games/top");
         const top = await response.json();
         setTop(top);
         console.log(top);
@@ -24,7 +24,7 @@ function MainPage() {
     };
     const fetchLatestGames  = async ()=>{
       try{
-        const response = await fetch("https://15.160.211.183/games/latest");
+        const response = await fetch("https://www.store-server.shop/games/latest");
         const latest = await response.json();
         setLatest(latest);
         console.log(latest);
@@ -62,7 +62,7 @@ function MainPage() {
             <div class="col-sm-6 col-lg-4">
             <div class="box">
               <div class="img-box">
-                <img src={`https://15.160.211.183/Images/${game.ImageName}`} alt="" style={{ width: '400px', height: '300px' }}/>
+                <img src={`https://www.store-server.shop/Images/${game.ImageName}`} alt="" style={{ width: '400px', height: '300px' }}/>
                 
               </div>
               <div class="detail-box text-center">
@@ -92,7 +92,7 @@ function MainPage() {
             <div class="col-sm-6 col-lg-4">
             <div class="box">
               <div class="img-box">
-                <img src={`https://15.160.211.183/Images/${game.ImageName}`} alt="" style={{ width: '400px', height: '300px' }}/>
+                <img src={`https://www.store-server.shop/Images/${game.ImageName}`} alt="" style={{ width: '400px', height: '300px' }}/>
                 
               </div>
               <div class="detail-box text-center">

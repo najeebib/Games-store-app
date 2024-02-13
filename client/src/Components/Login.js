@@ -25,7 +25,7 @@ function Login() {
                 password: password,
             };
             const queryString = new URLSearchParams(queryParams).toString();
-            const apiURL = `https://15.160.211.183/user?${queryString}`
+            const apiURL = `https://www.store-server.shop/user?${queryString}`
             const fetchAllUsers = async () => {
                 try {
                   const response = await fetch(apiURL);
