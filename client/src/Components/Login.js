@@ -25,7 +25,7 @@ function Login() {
                 password: password,
             };
             const queryString = new URLSearchParams(queryParams).toString();
-            const apiURL = `http://localhost:5000/user?${queryString}`
+            const apiURL = `http://15.160.211.183/user?${queryString}`
             const fetchAllUsers = async () => {
                 try {
                   const response = await fetch(apiURL);

@@ -27,7 +27,7 @@ function Checkout() {
               const userID = {
                 userID: id,
               };
-              const response = await fetch('http://localhost:5000/cartAllGames', {
+              const response = await fetch('http://15.160.211.183/cartAllGames', {
                 method: 'DELETE',
                 headers: {
                   'Content-Type': 'application/json',
