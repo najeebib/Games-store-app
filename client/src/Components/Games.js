@@ -8,7 +8,7 @@ import Pagination from './Pagination';
 
 import './Games.css'
 function Games() {
-  const [gamesPerPage, setGamesPerPage] = useState(8);
+  const [gamesPerPage, setGamesPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
   const [games,setGames] = useState([]);
   const id = useSelector((state) => state.id.ID)
